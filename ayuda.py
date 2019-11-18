@@ -24,10 +24,16 @@ def reglafilas (letrasproposicionales,listafilas,diccionario):
             reglam=aux[0]+"~"+aux[1]+aux[2]+"YY"+aux[0]+aux[1]+aux[2]+"~YYV"
     return reglam
 
-def reglascolumnas()
+def reglascolumnas(letrasproposicionales,listacolumnas,diccionario):
+    reglan=""
+    for k in listacolumnas:
+        aux2=[y for y in letras porposicionales if x[1]=='1']
+        if diccionario[k]==[1,1]:
+                reglan=aux2[]+aux2[]+"~"+aux2[]+"YY"
+                
 
 listafilas=['A','B','C']
-listacolumna=['1','2','3']
+listacolumnas=['1','2','3']
 diccionario={"A":[1,1],"B":[3],"C":[0],"1":[2],"2":[1],"3":[2]}
 letras = letrasproposicionales(listafilas, listacolumna)
 #print(letras)
