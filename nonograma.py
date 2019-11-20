@@ -40,33 +40,28 @@ def reglascolumnas(letrasproposicionales,listacolumnas,diccionario):
             reglam=aux[2]+aux[1]+aux[0]+"~YY"+aux[2]+"~"+aux[1]+aux[0]+"YYO"    
     return reglam
         
-def StringtoTree(A, letrasProposicionales):
+def StringtoTree(A):
     # Crea una formula como tree dada una formula como cadena escrita en notacion polaca inversa
     # Input: A, lista de caracteres con una formula escrita en notacion polaca inversa
              # letrasProposicionales, lista de letras proposicionales
     # Output: formula como tree
-    delimeter = ','
-    conectivos = ['~', 'O', 'Y']
+    conectivos = ['O', 'Y']
     pila = []
-    letra = ""
     for c in A:
-        if c not in conectivos and c != delimeter:
-            letra += c
-        elif c == delimeter:
-            if letra in letrasProposicionales:
-                pila.append(Tree(letra, None, None))
-            letra = ""
-        else :
-            if c == '~':
-                formulaAux = Tree(c, None, pila[-1])
-                del pila[-1]
-                pila.append(formulaAux)
-            elif c in conectivos and c != '~':
-                formulaAux = Tree(c, pila[-1], pila[-2])
-                del pila[-1]
-                del pila[-1]
-                pila.append(formulaAux)
-    return pila[-1]
+        if c in letras:
+            pila.append(Tree(c,None, None))
+        elif c == "~":
+            formaux = Tree(c, None, pila[-1])
+            del pila[-1]
+            pila.append(formaux)
+        elif c in conectivos:
+            formaux = Tree(c, pila[-1], pila[-2])
+            del pila[-1]
+            del pila[-2]
+            pila.append(formaux)
+    return stack[-1]
+
+
 def Inorder(f):
     # Imprime una formula como cadena dada una formula como arbol
     # Input: tree, que es una formula de logica proposicional
