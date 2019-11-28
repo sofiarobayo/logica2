@@ -296,7 +296,7 @@ def DPLL(clausula,I):
     literal=""
     for i in clausula:
         for x in i:
-            if x not I.keys():
+            if x not in I.keys():
                 literal=x
                 
     literalc=complemento(literal)
